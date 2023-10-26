@@ -24,6 +24,16 @@ fichier `.env` dans le dépôt Git, surtout s'il est public, pour des raisons de
 - Requests : Bibliothèque pour effectuer des requêtes HTTP.
 - HTML : Pour la structure et le style de la page web.
 
+## Docker
+
+### install
+
+- docker build -t monapplidjango .
+
+### Exécution
+
+- docker run -p 8000:8000 monapplidjango
+
 ## Installation et Exécution
 
 1. Clonez ce dépôt :

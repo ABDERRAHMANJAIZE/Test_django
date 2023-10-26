@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project files into the container
 COPY . /app/
 
-# Collect static files
+# Collect staticfiles files
 RUN python manage.py collectstatic --noinput
 
 # Start gunicorn
