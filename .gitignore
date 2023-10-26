@@ -1,0 +1,40 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+media/
+
+# virtual environment
+venv/
+ENV/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*.swp
+*~
+
+# Python
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+
+# Environments
+#.env  #removed this to be able to push the env file
