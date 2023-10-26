@@ -1,15 +1,18 @@
 <!-- moviesearch/templates/search.html -->
 <form method="post" action="">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Search</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
 </form>
 
+<a href="{% url 'search_history' %}">View Search History</a>
+
+
 {% for data in results %}
-  <ul>
-    <li>
-        <h3> {{ data.name }} ({{ data.year }})</h3>
-        <img src="{{ data.image }}" alt="{{ data.name }} cover image">
-    </li>
-  </ul>
+    <ul>
+        <li>
+            <h3> {{ data.name }} ({{ data.year }})</h3>
+            <img src="{{ data.image }}" alt="{{ data.name }} cover image">
+        </li>
+    </ul>
 {% endfor %}

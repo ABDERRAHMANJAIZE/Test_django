@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import search_view
+from .views import search_view, search_history_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', search_view, name='search'),
+    path('search-history/', search_history_view, name='search_history'),
 ]

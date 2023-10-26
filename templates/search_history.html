@@ -1,0 +1,9 @@
+<h1>Search History</h1>
+
+<ul>
+    {% for search in search_history %}
+        <li>{{ search.title }} ({{ search.is_series|yesno:"Series,Movie" }}) - Searched at {{ search.searched_at }}</li>
+    {% empty %}
+        <li>No search history found.</li>
+    {% endfor %}
+</ul>

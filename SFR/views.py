@@ -2,6 +2,7 @@ from django.http import HttpResponseServerError
 from django.shortcuts import render
 
 from .forms import SearchForm
+from .models import SearchHistory
 from .utils import search_media
 
 
@@ -25,6 +26,11 @@ def search_view(request):
                 print(f"Une erreur s'est produite pendant la recherche : {str(e)}")
                 return HttpResponseServerError("Une erreur interne du serveur s'est produite.")
 
+            try:
+                SearchHistory.objects.create(title=title, is_series=is_series)
+            except Exception as e:
+                print(f"Une erreur s'est produite pendant l'insertion dans la base de donnee' : {str(e)}")
+
             request.session['last_search_query_title'] = title
             request.session['last_search_query_type'] = is_series
     else:
@@ -36,3 +42,9 @@ def search_view(request):
 
     # Rendre la page de recherche avec le formulaire et les résultats de la recherche
     return render(request, 'search.html', {'form': form, 'results': titles})
+
+
+def search_history_view(request):
+    # Récupérer toutes les entrées de l'historique de recherche et les convertir en une liste de dictionnaires.
+    search_history = SearchHistory.objects.all().values()
+    return render(request, 'search_history.html', {'search_history': search_history})
