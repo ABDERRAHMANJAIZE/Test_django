@@ -1,0 +1,15 @@
+<!-- moviesearch/templates/search.html -->
+<form method="post" action="">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Search</button>
+</form>
+
+{% for data in results %}
+  <ul>
+    <li>
+        <h3> {{ data.name }} ({{ data.year }})</h3>
+        <img src="{{ data.image }}" alt="{{ data.name }} cover image">
+    </li>
+  </ul>
+{% endfor %}
